@@ -14,8 +14,9 @@ Make a maintainer decision, not a generic code-review summary. Separate these qu
 3. What happens when they do?
 4. Is it important enough to act on now?
 5. For a PR, is this solution worth merging and maintaining?
-6. If competing PRs exist, which single implementation path should maintainers pursue?
-7. What concise maintainer message should communicate a closure or change request clearly and politely?
+6. Can overlapping or stale operations corrupt shared state or clean up resources owned by surviving work?
+7. If competing PRs exist, which single implementation path should maintainers pursue?
+8. What concise maintainer message should communicate a closure or change request clearly and politely?
 
 Lead with the current review state. Use `Preliminary assessment` while runtime approval or evidence is pending, and `Maintainer decision` only when the review can be concluded. Use the diff, issue narrative, or contributor effort as evidence, not as a proxy for impact.
 
@@ -52,7 +53,7 @@ For repository-specific runtime invariants, start with `.agents/references/READM
 
 Use this evidence order across the two stages:
 
-1. Inspect existing tests and complete the code-path trace without executing code.
+1. Inspect existing tests and complete the code-path trace, including the mandatory interleaving and ownership pass when triggered, without executing code.
 2. With explicit user approval, run a focused local reproduction of the exact claim when the desk-review rules below require it.
 3. A comparison with the released version, base branch, or known-good control.
 4. A broader runtime matrix only when the maintainer decision remains uncertain and the user approves it.
@@ -61,8 +62,20 @@ Use this evidence order across the two stages:
 
 Produce an initial result from static evidence before running code:
 
+##### Mandatory interleaving and ownership pass
+
+Run this pass before any positive PR assessment when a patch adds, removes, or reorders cleanup, retry, reconnect, cancellation, listeners, shared futures or tasks, connections or streams, state flags, or mutable state across an `await`, callback, event, or deferred completion.
+
+1. Name each shared resource or state value and the operation that owns it. Include listeners, futures, tasks, connections, streams, locks, caches, state flags, persistence, and telemetry.
+2. Trace at least two overlapping operations, `A` and `B`, across every suspension or re-entry point. Check `A pending -> B starts -> A fails -> B succeeds`, `A pending -> B starts -> B fails -> A succeeds`, close or cancellation between setup and completion, and a stale completion arriving after newer work.
+3. For every cleanup or rollback, identify the exact attempt and resource generation it is allowed to dispose. Treat unconditional cleanup after a suspension point as a regression candidate until the code proves it cannot tear down newer or surviving work.
+4. Compare base and head for the survivor invariant. Replacing duplicated work with missing handlers, a closed shared resource, reverted state, or a failed surviving task is a regression, not successful cleanup.
+5. Inspect tests for controlled interleavings using deferred futures, callbacks, or events. Require assertions about the surviving operation's observable behavior and final resource state, not only listener counts or individual exception results.
+
+Do not mark a concurrency-sensitive patch `Merge-worthy as-is` merely because sequential reconnect, retry, failure, and close tests pass. If the code trace proves an unsafe interleaving, conclude from static evidence and request a focused fix and regression test. If ownership remains ambiguous, keep the result preliminary and request approval for the smallest decisive runtime probe.
+
 - If the claim or PR is decisively negative from a complete reachable code-path trace, conclude the review without a runtime probe. Examples include an impossible or unsupported path, duplicated existing handling, a demonstrated no-op, a direct compatibility break, or a clearly wrong abstraction. Do not call an ambiguous result negative merely to avoid a probe.
-- If the initial result is positive and there is no unresolved runtime concern, the desk review may be sufficient for a final maintainer decision. Do not run a probe only to restate evidence that cannot plausibly change the decision.
+- If the initial result is positive and there is no unresolved runtime concern, and any triggered interleaving and ownership pass is complete, the desk review may be sufficient for a final maintainer decision. Do not run a probe only to restate evidence that cannot plausibly change the decision.
 - If the initial result is positive but there is any unresolved runtime concern that could plausibly change claim validity, severity, merge-worthiness, required changes, or the preferred competing PR, stop before executing code. Report a `Preliminary assessment`, name the concern, propose the smallest decisive probe and control, and ask the user for approval to run it.
 - A purely stylistic, documentation, CI-status, or repository-readiness concern does not trigger a runtime probe unless it masks a runtime question.
 
