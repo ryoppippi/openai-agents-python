@@ -11,19 +11,30 @@
       
       
       
+        
+          <link rel="alternate" href="../../examples/" hreflang="en">
+        
+          <link rel="alternate" href="../../ja/examples/" hreflang="ja">
+        
+          <link rel="alternate" href="./" hreflang="ko">
+        
+          <link rel="alternate" href="../../zh/examples/" hreflang="zh">
+        
+      
+      
       <link rel="icon" href="../../images/favicon-platform.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>예제 - OpenAI Agents SDK</title>
+        <title>코드 예제 - OpenAI Agents SDK</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -54,7 +65,6 @@
     
       
 
-    
     
     
   </head>
@@ -109,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              예제
+              코드 예제
             
           </span>
         </div>
@@ -204,7 +214,7 @@
         <a href="https://github.com/openai/openai-agents-python" title="저장소로 이동" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     openai-agents-python
@@ -249,7 +259,7 @@
       <a href="https://github.com/openai/openai-agents-python" title="저장소로 이동" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     openai-agents-python
@@ -271,9 +281,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     소개
+  
+
     
   </span>
+  
   
 
       </a>
@@ -293,9 +308,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     빠른 시작
+  
+
     
   </span>
+  
   
 
       </a>
@@ -315,9 +335,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     구성
+  
+
     
   </span>
+  
   
 
       </a>
@@ -353,9 +378,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     문서
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -364,7 +394,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            문서
+            
+  
+    문서
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -380,9 +414,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     에이전트
+  
+
     
   </span>
+  
   
 
       </a>
@@ -416,9 +455,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Sandbox 에이전트
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -427,7 +471,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
-            Sandbox 에이전트
+            
+  
+    Sandbox 에이전트
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -443,9 +491,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     빠른 시작
+  
+
     
   </span>
+  
   
 
       </a>
@@ -466,9 +519,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     개념
+  
+
     
   </span>
+  
   
 
       </a>
@@ -489,9 +547,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     샌드박스 클라이언트
+  
+
     
   </span>
+  
   
 
       </a>
@@ -512,9 +575,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     에이전트 메모리
+  
+
     
   </span>
+  
   
 
       </a>
@@ -556,9 +624,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     실시간 에이전트
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -567,7 +640,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
-            실시간 에이전트
+            
+  
+    실시간 에이전트
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -583,9 +660,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     빠른 시작
+  
+
     
   </span>
+  
   
 
       </a>
@@ -606,9 +688,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     실시간 에이전트 가이드
+  
+
     
   </span>
+  
   
 
       </a>
@@ -650,9 +737,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     음성 에이전트
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -661,7 +753,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4">
             <span class="md-nav__icon md-icon"></span>
-            음성 에이전트
+            
+  
+    음성 에이전트
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -677,9 +773,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     빠른 시작
+  
+
     
   </span>
+  
   
 
       </a>
@@ -700,9 +801,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     파이프라인 및 워크플로
+  
+
     
   </span>
+  
   
 
       </a>
@@ -723,9 +829,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     트레이싱
+  
+
     
   </span>
+  
   
 
       </a>
@@ -754,9 +865,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     모델
+  
+
     
   </span>
+  
   
 
       </a>
@@ -777,9 +893,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     도구
+  
+
     
   </span>
+  
   
 
       </a>
@@ -800,9 +921,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     가드레일
+  
+
     
   </span>
+  
   
 
       </a>
@@ -823,9 +949,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     에이전트 실행
+  
+
     
   </span>
+  
   
 
       </a>
@@ -846,9 +977,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     스트리밍
+  
+
     
   </span>
+  
   
 
       </a>
@@ -869,9 +1005,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     에이전트 오케스트레이션
+  
+
     
   </span>
+  
   
 
       </a>
@@ -892,9 +1033,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     핸드오프
+  
+
     
   </span>
+  
   
 
       </a>
@@ -915,9 +1061,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     결과
+  
+
     
   </span>
+  
   
 
       </a>
@@ -938,9 +1089,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     휴먼인더루프 (HITL)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -974,9 +1130,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     세션
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -985,7 +1146,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_14">
             <span class="md-nav__icon md-icon"></span>
-            세션
+            
+  
+    세션
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1001,9 +1166,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     세션
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1024,9 +1194,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     SQLAlchemy 세션
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1047,9 +1222,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     고급 SQLite 세션
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1070,9 +1250,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     암호화된 세션
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1101,9 +1286,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     컨텍스트 관리
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1124,9 +1314,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     사용량
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1147,9 +1342,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Model context protocol (MCP)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1170,9 +1370,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     트레이싱
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1193,9 +1398,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     테스트
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1216,9 +1426,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     에이전트 시각화
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1239,9 +1454,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     REPL 유틸리티
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1262,9 +1482,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     릴리스 프로세스/변경 로그
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1300,23 +1525,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      목차
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#categories" class="md-nav__link">
-    <span class="md-ellipsis">
-      카테고리
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1325,6 +1533,15 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -1334,164 +1551,8 @@
   
 
 
-<h1 id="_1">예제</h1>
-<p><a href="https://github.com/openai/openai-agents-python/tree/main/examples">저장소</a>의 examples 섹션에서 SDK를 사용하는 다양한 샘플 구현을 확인해 보세요. 예제는 서로 다른 패턴과 기능을 보여 주는 여러 카테고리로 구성되어 있습니다.</p>
-<h2 id="categories">카테고리</h2>
-<ul>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/agent_patterns">agent_patterns</a>:</strong> 이 카테고리의 예제는 다음과 같은 일반적인 에이전트 설계 패턴을 보여 줍니다.</p>
-<ul>
-<li>결정적 워크플로</li>
-<li>Agents as tools</li>
-<li>스트리밍 이벤트를 사용하는 Agents as tools (<code>examples/agent_patterns/agents_as_tools_streaming.py</code>)</li>
-<li>구조화된 입력 매개변수를 사용하는 Agents as tools (<code>examples/agent_patterns/agents_as_tools_structured.py</code>)</li>
-<li>병렬 에이전트 실행</li>
-<li>조건부 도구 사용</li>
-<li>서로 다른 도구 사용 동작을 보여 주면서 도구 사용 강제 (<code>examples/agent_patterns/forcing_tool_use.py</code>)</li>
-<li>입력/출력 가드레일</li>
-<li>판정자로서의 LLM</li>
-<li>라우팅</li>
-<li>스트리밍 가드레일</li>
-<li>도구 승인 및 상태 직렬화를 사용하는 휴먼인더루프 (HITL) (<code>examples/agent_patterns/human_in_the_loop.py</code>)</li>
-<li>스트리밍을 사용하는 휴먼인더루프 (HITL) (<code>examples/agent_patterns/human_in_the_loop_stream.py</code>)</li>
-<li>승인 흐름을 위한 사용자 지정 거부 메시지 (<code>examples/agent_patterns/human_in_the_loop_custom_rejection.py</code>)</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/basic">basic</a>:</strong> 다음과 같은 SDK의 기본 기능을 보여 주는 예제입니다.</p>
-<ul>
-<li>Hello world 예제(기본 모델, GPT-5, 오픈 웨이트 모델)</li>
-<li>에이전트 수명 주기 관리</li>
-<li><code>RunHooks</code> 및 <code>AgentHooks</code> 사용을 보여 주는 에이전트 및 실행 수명 주기 예제 (<code>examples/basic/lifecycle_example.py</code>)</li>
-<li>동적 시스템 프롬프트</li>
-<li>기본 도구 사용 (<code>examples/basic/tools.py</code>)</li>
-<li>도구 입력/출력 가드레일 (<code>examples/basic/tool_guardrails.py</code>)</li>
-<li>도구 출력으로 이미지 반환 (<code>examples/basic/image_tool_output.py</code>)</li>
-<li>출력 스트리밍(텍스트, 항목, 함수 호출 인수)</li>
-<li>여러 턴에서 공유 세션 헬퍼를 사용하는 Responses WebSocket 전송 (<code>examples/basic/stream_ws.py</code>)</li>
-<li>프롬프트 템플릿</li>
-<li>파일 처리(로컬 및 원격, 이미지 및 PDF)</li>
-<li>사용량 추적</li>
-<li>Runner 관리형 재시도 설정 (<code>examples/basic/retry.py</code>)</li>
-<li>서드 파티 어댑터를 통한 Runner 관리형 재시도 (<code>examples/basic/retry_litellm.py</code>)</li>
-<li>비엄격 출력 유형</li>
-<li>이전 응답 ID 사용</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/customer_service">customer_service</a>:</strong> 항공사 고객 서비스 시스템 예제입니다.</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/financial_research_agent">financial_research_agent</a>:</strong> 에이전트와 도구를 사용해 금융 데이터 분석을 위한 구조화된 리서치 워크플로를 보여 주는 금융 리서치 에이전트입니다.</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/handoffs">handoffs</a>:</strong> 메시지 필터링을 포함한 에이전트 핸드오프의 실용적인 예제입니다.</p>
-<ul>
-<li>메시지 필터 예제 (<code>examples/handoffs/message_filter.py</code>)</li>
-<li>스트리밍을 사용하는 메시지 필터 (<code>examples/handoffs/message_filter_streaming.py</code>)</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/hosted_mcp">hosted_mcp</a>:</strong> OpenAI Responses API에서 호스티드 MCP(Model Context Protocol)를 사용하는 방법을 보여 주는 예제이며, 다음을 포함합니다.</p>
-<ul>
-<li>승인 없이 사용하는 간단한 호스티드 MCP (<code>examples/hosted_mcp/simple.py</code>)</li>
-<li>Google Calendar와 같은 MCP 커넥터 (<code>examples/hosted_mcp/connectors.py</code>)</li>
-<li>인터럽션(중단 처리) 기반 승인을 사용하는 휴먼인더루프 (HITL) (<code>examples/hosted_mcp/human_in_the_loop.py</code>)</li>
-<li>MCP 도구 승인 요청을 위한 콜백 (<code>examples/hosted_mcp/on_approval.py</code>)</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/mcp">mcp</a>:</strong> 다음을 포함하여 MCP(Model Context Protocol)로 에이전트를 구축하는 방법을 알아봅니다.</p>
-<ul>
-<li>파일 시스템 예제</li>
-<li>Git 예제</li>
-<li>MCP 프롬프트 서버 예제</li>
-<li>SSE(Server-Sent Events) 예제</li>
-<li>SSE 원격 서버 연결 (<code>examples/mcp/sse_remote_example</code>)</li>
-<li>Streamable HTTP 예제</li>
-<li>Streamable HTTP 원격 연결 (<code>examples/mcp/streamable_http_remote_example</code>)</li>
-<li>Streamable HTTP용 사용자 지정 HTTP 클라이언트 팩토리 (<code>examples/mcp/streamablehttp_custom_client_example</code>)</li>
-<li><code>MCPUtil.get_all_function_tools</code> 사용을 통한 모든 MCP 도구 사전 가져오기 (<code>examples/mcp/get_all_mcp_tools_example</code>)</li>
-<li>FastAPI 애플리케이션에서 <code>MCPServerManager</code> 사용 (<code>examples/mcp/manager_example</code>)</li>
-<li>MCP 도구 필터링 (<code>examples/mcp/tool_filter_example</code>)</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/memory">memory</a>:</strong> 다음을 포함한 다양한 에이전트 메모리 구현 예제입니다.</p>
-<ul>
-<li>SQLite 세션 스토리지</li>
-<li>고급 SQLite 세션 스토리지</li>
-<li>Redis 세션 스토리지</li>
-<li>SQLAlchemy 세션 스토리지</li>
-<li>Dapr 상태 저장소 세션 스토리지</li>
-<li>암호화된 세션 스토리지</li>
-<li>OpenAI Conversations 세션 스토리지</li>
-<li>Responses 컴팩션 세션 스토리지</li>
-<li><code>ModelSettings(store=False)</code> 사용을 통한 상태 비저장 Responses 컴팩션 (<code>examples/memory/compaction_session_stateless_example.py</code>)</li>
-<li>파일 기반 세션 스토리지 (<code>examples/memory/file_session.py</code>)</li>
-<li>휴먼인더루프 (HITL)를 사용하는 파일 기반 세션 (<code>examples/memory/file_hitl_example.py</code>)</li>
-<li>휴먼인더루프 (HITL)를 사용하는 SQLite 인메모리 세션 (<code>examples/memory/memory_session_hitl_example.py</code>)</li>
-<li>휴먼인더루프 (HITL)를 사용하는 OpenAI Conversations 세션 (<code>examples/memory/openai_session_hitl_example.py</code>)</li>
-<li>여러 세션에 걸친 HITL 승인/거부 시나리오 (<code>examples/memory/hitl_session_scenario.py</code>)</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/model_providers">model_providers</a>:</strong> 사용자 지정 제공자와 서드 파티 어댑터를 포함하여 SDK에서 OpenAI 외 모델을 사용하는 방법을 살펴봅니다.</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/realtime">realtime</a>:</strong> 다음을 포함하여 SDK로 실시간 경험을 구축하는 방법을 보여 주는 예제입니다.</p>
-<ul>
-<li>구조화된 텍스트 및 이미지 메시지를 사용하는 웹 애플리케이션 패턴</li>
-<li>명령줄 오디오 루프 및 재생 처리</li>
-<li>WebSocket을 통한 Twilio Media Streams 통합</li>
-<li>Realtime Calls API의 <code>attach</code> 흐름을 사용하는 Twilio SIP 통합</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/reasoning_content">reasoning_content</a>:</strong> 추론 콘텐츠를 다루는 방법을 보여 주는 예제이며, 다음을 포함합니다.</p>
-<ul>
-<li>Runner API에서 스트리밍 및 비스트리밍 방식으로 추론 콘텐츠 사용 (<code>examples/reasoning_content/runner_example.py</code>)</li>
-<li>OpenRouter를 통해 OSS 모델에서 추론 콘텐츠 사용 (<code>examples/reasoning_content/gpt_oss_stream.py</code>)</li>
-<li>기본 추론 콘텐츠 예제 (<code>examples/reasoning_content/main.py</code>)</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/research_bot">research_bot</a>:</strong> 복잡한 멀티 에이전트 리서치 워크플로를 보여 주는 간단한 딥 리서치 클론입니다.</p>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/sandbox">sandbox</a>:</strong> 격리된 작업 공간에서 에이전트를 실행하는 예제이며, 다음을 포함합니다.</p>
-<ul>
-<li>기본 샌드박스 에이전트 설정 (<code>examples/sandbox/basic.py</code>)</li>
-<li>Unix 로컬 및 Docker 샌드박스 수명 주기 예제</li>
-<li>샌드박스 기반 핸드오프 (<code>examples/sandbox/handoffs.py</code>)</li>
-<li>샌드박스 메모리 및 스냅샷 재개 (<code>examples/sandbox/memory.py</code>)</li>
-<li>도구로 노출된 샌드박스 에이전트 (<code>examples/sandbox/sandbox_agents_as_tools.py</code>)</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/tools">tools</a>:</strong> OpenAI에서 호스팅하는 도구와 실험적 Codex 툴링을 구현하는 방법을 알아봅니다. 예제는 다음과 같습니다.</p>
-<ul>
-<li>웹 검색 및 필터를 적용한 웹 검색</li>
-<li>파일 검색</li>
-<li>Code interpreter</li>
-<li>파일 편집 및 승인을 지원하는 패치 적용 도구 (<code>examples/tools/apply_patch.py</code>)</li>
-<li>승인 콜백을 사용하는 셸 도구 실행 (<code>examples/tools/shell.py</code>)</li>
-<li>휴먼인더루프 (HITL) 인터럽션(중단 처리) 기반 승인을 사용하는 셸 도구 (<code>examples/tools/shell_human_in_the_loop.py</code>)</li>
-<li>인라인 스킬을 사용하는 호스티드 컨테이너 셸 (<code>examples/tools/container_shell_inline_skill.py</code>)</li>
-<li>스킬 참조를 사용하는 호스티드 컨테이너 셸 (<code>examples/tools/container_shell_skill_reference.py</code>)</li>
-<li>로컬 스킬을 사용하는 로컬 셸 (<code>examples/tools/local_shell_skill.py</code>)</li>
-<li>네임스페이스 및 지연 로딩을 사용하는 도구를 활용한 도구 검색 (<code>examples/tools/tool_search.py</code>)</li>
-<li>동시 구조화 도구 호출을 사용하는 프로그래밍 방식 도구 호출 (<code>examples/tools/programmatic_tool_calling.py</code>)</li>
-<li>컴퓨터 사용</li>
-<li>이미지 생성</li>
-<li>실험적 Codex 도구 워크플로 (<code>examples/tools/codex.py</code>)</li>
-<li>동일한 Codex 대화 스레드를 재사용하는 실험적 Codex 워크플로 (<code>examples/tools/codex_same_thread.py</code>)</li>
-</ul>
-</li>
-<li>
-<p><strong><a href="https://github.com/openai/openai-agents-python/tree/main/examples/voice">voice</a>:</strong> 스트리밍 음성 예제를 포함하여 TTS 및 STT 모델을 사용하는 음성 에이전트 예제를 확인하세요.</p>
-</li>
-</ul>
+<h1 id="_1">코드 예제</h1>
+<p>OpenAI Agents SDK를 사용하는 샘플 구현은 <a href="https://github.com/openai/openai-agents-python/tree/main/examples">GitHub의 코드 예제 디렉터리</a>에서 확인할 수 있습니다.</p>
 
 
 
@@ -1538,10 +1599,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.path", "navigation.sections", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.path", "navigation.sections", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
