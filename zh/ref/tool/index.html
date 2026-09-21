@@ -12921,30 +12921,23 @@ surfacing a clear error.</p>
 
     <div class="doc doc-contents ">
 
-        <p>The default tool error function, which just returns a generic error message.</p>
+        <p>Return a fixed error response without exposing the exception to the model.</p>
+<p>Provide a custom <code>failure_error_function</code> to return application-approved error details.</p>
 
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/agents/tool.py</code></summary>
-              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1966">1966</a></span>
-<span class="normal"><a href="#__codelineno-0-1967">1967</a></span>
-<span class="normal"><a href="#__codelineno-0-1968">1968</a></span>
-<span class="normal"><a href="#__codelineno-0-1969">1969</a></span>
-<span class="normal"><a href="#__codelineno-0-1970">1970</a></span>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1970">1970</a></span>
 <span class="normal"><a href="#__codelineno-0-1971">1971</a></span>
 <span class="normal"><a href="#__codelineno-0-1972">1972</a></span>
 <span class="normal"><a href="#__codelineno-0-1973">1973</a></span>
 <span class="normal"><a href="#__codelineno-0-1974">1974</a></span>
-<span class="normal"><a href="#__codelineno-0-1975">1975</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1966"><a id="__codelineno-0-1966" name="__codelineno-0-1966"></a><span class="k">def</span><span class="w"> </span><span class="nf">default_tool_error_function</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">RunContextWrapper</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">error</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="__span-0-1967"><a id="__codelineno-0-1967" name="__codelineno-0-1967"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;The default tool error function, which just returns a generic error message.&quot;&quot;&quot;</span>
-</span><span id="__span-0-1968"><a id="__codelineno-0-1968" name="__codelineno-0-1968"></a>    <span class="n">json_decode_error</span> <span class="o">=</span> <span class="n">_extract_tool_argument_json_error</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-</span><span id="__span-0-1969"><a id="__codelineno-0-1969" name="__codelineno-0-1969"></a>    <span class="k">if</span> <span class="n">json_decode_error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-0-1970"><a id="__codelineno-0-1970" name="__codelineno-0-1970"></a>        <span class="k">return</span> <span class="p">(</span>
-</span><span id="__span-0-1971"><a id="__codelineno-0-1971" name="__codelineno-0-1971"></a>            <span class="s2">&quot;An error occurred while parsing tool arguments. &quot;</span>
-</span><span id="__span-0-1972"><a id="__codelineno-0-1972" name="__codelineno-0-1972"></a>            <span class="s2">&quot;Please try again with valid JSON. &quot;</span>
-</span><span id="__span-0-1973"><a id="__codelineno-0-1973" name="__codelineno-0-1973"></a>            <span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">json_decode_error</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="__span-0-1974"><a id="__codelineno-0-1974" name="__codelineno-0-1974"></a>        <span class="p">)</span>
-</span><span id="__span-0-1975"><a id="__codelineno-0-1975" name="__codelineno-0-1975"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;An error occurred while running the tool. Please try again. Error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="normal"><a href="#__codelineno-0-1975">1975</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1970"><a id="__codelineno-0-1970" name="__codelineno-0-1970"></a><span class="k">def</span><span class="w"> </span><span class="nf">default_tool_error_function</span><span class="p">(</span><span class="n">ctx</span><span class="p">:</span> <span class="n">RunContextWrapper</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">error</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-0-1971"><a id="__codelineno-0-1971" name="__codelineno-0-1971"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a fixed error response without exposing the exception to the model.</span>
+</span><span id="__span-0-1972"><a id="__codelineno-0-1972" name="__codelineno-0-1972"></a>
+</span><span id="__span-0-1973"><a id="__codelineno-0-1973" name="__codelineno-0-1973"></a><span class="sd">    Provide a custom ``failure_error_function`` to return application-approved error details.</span>
+</span><span id="__span-0-1974"><a id="__codelineno-0-1974" name="__codelineno-0-1974"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-0-1975"><a id="__codelineno-0-1975" name="__codelineno-0-1975"></a>    <span class="k">return</span> <span class="s2">&quot;An error occurred while running the tool. Please try again.&quot;</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
