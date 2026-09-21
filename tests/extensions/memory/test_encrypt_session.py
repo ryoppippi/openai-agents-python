@@ -189,7 +189,7 @@ async def test_runner_encrypts_items_around_compaction(
 
 @pytest.mark.parametrize("streamed", [False, True])
 @pytest.mark.parametrize("mode", ["input", "previous_response_id"])
-async def test_runner_compacts_encrypted_history(
+async def test_encrypted_compaction_replaces_complete_logical_history_after_expiry(
     streamed: bool,
     mode: OpenAIResponsesCompactionMode,
     encryption_key: str,
