@@ -1051,6 +1051,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#approval-for-local-shell-and-file-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval for local shell and file edits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#computertool-and-the-responses-computer-tool" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5235,6 +5246,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#approval-for-local-shell-and-file-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Approval for local shell and file edits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#computertool-and-the-responses-computer-tool" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5805,6 +5827,11 @@
 <li>Local shell skills are available with <code>ShellTool(environment={"type": "local", "skills": [...]})</code>.</li>
 </ul>
 <p>Shell action timeouts use positive integer milliseconds for a finite timeout. The SDK treats both <code>0</code> and <code>None</code> as no explicit timeout before calling a local <code>ShellTool</code> executor because zero does not have a portable meaning across executor implementations; other values are rejected before executor invocation. This is specific to the timeout field: <code>max_output_length=0</code> remains a supported request for empty captured output.</p>
+<h3 id="approval-for-local-shell-and-file-edits">Approval for local shell and file edits</h3>
+<p>Local <code>ShellTool</code> and <code>ApplyPatchTool</code> default to <code>needs_approval=False</code>. With this setting, the SDK can invoke your executor or editor without requesting approval. Your implementation determines where commands run or files change and must enforce the intended resource permissions and isolation; SDK approval does not provide a sandbox.</p>
+<p>For commands or file edits that require review, set <code>needs_approval=True</code> on the tool, or provide a callable policy that returns <code>True</code> for calls that require approval. Without an <code>on_approval</code> callback, the run pauses before invoking the executor or editor and returns pending requests in <code>result.interruptions</code>. Approve or reject those requests through <code>RunState</code>, then resume the run as described in the <a href="../human_in_the_loop/">human-in-the-loop guide</a>.</p>
+<p>To decide immediately in application code, set both <code>needs_approval</code> and <code>on_approval</code>. The SDK invokes <code>on_approval</code> only when the call requires approval and has no existing approval decision; setting the callback alone does not enable approval. See <code>examples/tools/shell.py</code> for a CLI prompt and <code>examples/tools/shell_human_in_the_loop.py</code> for manual interruption handling. The <code>examples/tools/apply_patch.py</code> example instead prompts inside its editor before changing files.</p>
+<p>Keep <code>needs_approval=False</code> when your application intentionally authorizes automatic execution, for example through an executor that enforces your sandbox policy. Hosted shell environments do not support the SDK's local <code>needs_approval</code> or <code>on_approval</code> settings.</p>
 <h3 id="computertool-and-the-responses-computer-tool">ComputerTool and the Responses computer tool</h3>
 <p><code>ComputerTool</code> is still a local harness: you provide a <a class="autorefs autorefs-internal" title="Computer" href="../ref/computer/#agents.computer.Computer"><code>Computer</code></a> or <a class="autorefs autorefs-internal" title="AsyncComputer" href="../ref/computer/#agents.computer.AsyncComputer"><code>AsyncComputer</code></a> implementation, and the SDK maps that harness onto the OpenAI Responses API computer surface.</p>
 <p>When an <a class="autorefs autorefs-internal" title="Agent
@@ -6071,7 +6098,10 @@
 <p>The code for the schema extraction lives in <a class="autorefs autorefs-internal" href="../ref/function_schema/#agents.function_schema"><code>agents.function_schema</code></a>.</p>
 <h3 id="constraining-and-describing-arguments-with-pydantic-field">Constraining and describing arguments with Pydantic Field</h3>
 <p>You can use Pydantic's <a href="https://docs.pydantic.dev/latest/concepts/fields/"><code>Field</code></a> to add constraints (e.g. min/max for numbers, length or pattern for strings) and descriptions to tool arguments. As in Pydantic, both forms are supported: default-based (<code>arg: int = Field(..., ge=1)</code>) and <code>Annotated</code> (<code>arg: Annotated[int, Field(..., ge=1)]</code>). The generated JSON schema and validation include these constraints.</p>
-<p>For variadic parameters, an annotation describes each collected value. The SDK therefore applies <code>Annotated[..., Field(...)]</code> constraints to each value supplied through <code>*args</code> or <code>**kwargs</code>, while omitted variadic parameters remain valid empty collections. Annotate scalar positional values as <code>*args: T</code>. If each positional value is itself a homogeneous tuple, use <code>*args: tuple[T, ...]</code>; the SDK rejects fixed-length tuple annotations such as <code>*args: tuple[int, str]</code> because one fixed tuple shape cannot describe a variadic sequence of positional values.</p>
+<p>For variadic parameters, an annotation describes each collected value. The SDK therefore applies <code>Annotated[..., Field(...)]</code> constraints to each value supplied through <code>*args</code> or <code>**kwargs</code>, while omitted variadic parameters remain valid empty collections.</p>
+<p>The SDK ignores <code>Field(description=...)</code> in the annotation of a variadic parameter (<code>*args</code> or <code>**kwargs</code>). To describe the collected parameter, use a parameter entry in the function docstring or a string in <code>Annotated</code>, for example <code>*scores: Annotated[int, "Exam scores", Field(ge=0, le=100)]</code>. When docstring parsing is enabled and both sources provide a description, the docstring description takes precedence.</p>
+<p>For <code>**kwargs</code>, use <code>@tool(strict_mode=False)</code> and supply the keyword values in the nested object named after the parameter. For example, a tool with <code>**scores: int</code> receives <code>{"scores": {"exam": 90}}</code>.</p>
+<p>Annotate scalar positional values as <code>*args: T</code>. If each positional value is itself a homogeneous tuple, use <code>*args: tuple[T, ...]</code>; the SDK rejects fixed-length tuple annotations such as <code>*args: tuple[int, str]</code> because one fixed tuple shape cannot describe a variadic sequence of positional values.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">agents.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span>
